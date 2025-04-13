@@ -1,0 +1,202 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #ff6b6b, #4b6cb7);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* Container for the entire layout */
+.container {
+    text-align: center;
+    padding: 20px;
+}
+
+/* Title Styling */
+.title {
+    font-size: 3rem;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Flag Container */
+.flag-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+/* Flag Base Styling */
+.flag {
+    width: 300px;
+    height: 200px;
+    position: relative;
+    border: 3px solid #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.flag:hover {
+    transform: scale(1.05);
+}
+
+/* China Flag */
+.china {
+    background-color: #de2910; /* Red background */
+}
+
+.china .stars {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.china .big-star {
+    width: 50px;
+    height: 50px;
+    background-color: #ffde00; /* Yellow */
+    clip-path: polygon(
+        50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%,
+        50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%
+    );
+}
+
+.china .small-star {
+    width: 20px;
+    height: 20px;
+    background-color: #ffde00;
+    clip-path: polygon(
+        50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%,
+        50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%
+    );
+    position: absolute;
+}
+
+.china .small-star.s1 { top: 10px; left: 70px; transform: rotate(30deg); }
+.china .small-star.s2 { top: 30px; left: 90px; transform: rotate(60deg); }
+.china .small-star.s3 { top: 50px; left: 90px; transform: rotate(90deg); }
+.china .small-star.s4 { top: 70px; left: 70px; transform: rotate(120deg); }
+
+/* USA Flag */
+.usa {
+    background: linear-gradient(
+        to bottom,
+        #b22234 7.7%, #fff 7.7%, #fff 15.4%, #b22234 15.4%, #b22234 23.1%,
+        #fff 23.1%, #fff 30.8%, #b22234 30.8%, #b22234 38.5%, #fff 38.5%,
+        #fff 46.2%, #b22234 46.2%, #b22234 53.9%, #fff 53.9%, #fff 61.6%,
+        #b22234 61.6%, #b22234 69.3%, #fff 69.3%, #fff 77%, #b22234 77%,
+        #b22234 84.7%, #fff 84.7%, #fff 92.4%, #b22234 92.4%
+    );
+}
+
+.usa .stars-field {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 120px;
+    height: 100px;
+    background-color: #3c3b6e;
+}
+
+.usa .stars-field::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 110px;
+    height: 90px;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35" fill="white" /><polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35" fill="white" transform="translate(20, 20) scale(0.5)" /><polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35" fill="white" transform="translate(40, 40) scale(0.5)" /><polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35" fill="white" transform="translate(60, 60) scale(0.5)" /><polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35" fill="white" transform="translate(20, 60) scale(0.5)" /><polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35" fill="white" transform="translate(60, 20) scale(0.5)" /></svg>') repeat;
+}
+
+/* VS Styling */
+.vs {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    animation: pulse 2s infinite;
+}
+
+/* Description Styling */
+.description {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+    opacity: 0;
+    animation: fadeIn 2s ease-in-out forwards;
+    animation-delay: 0.5s;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .title {
+        font-size: 2rem;
+    }
+
+    .flag-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .flag {
+        width: 250px;
+        height: 167px;
+    }
+
+    .usa .stars-field {
+        width: 100px;
+        height: 83px;
+    }
+
+    .china .big-star {
+        width: 40px;
+        height: 40px;
+    }
+
+    .china .small-star {
+        width: 15px;
+        height: 15px;
+    }
+
+    .china .small-star.s1 { top: 8px; left: 55px; }
+    .china .small-star.s2 { top: 25px; left: 70px; }
+    .china .small-star.s3 { top: 40px; left: 70px; }
+    .china .small-star.s4 { top: 55px; left: 55px; }
+
+    .vs {
+        font-size: 2rem;
+    }
+
+    .description {
+        font-size: 1rem;
+    }
+}
